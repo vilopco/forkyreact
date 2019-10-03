@@ -1,0 +1,10 @@
+.value {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+}
