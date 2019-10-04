@@ -4,29 +4,28 @@ import './App.css';
 
 class App extends Component {
   constructor() {
-    super();
-    
+    super(); 
     this.state = {
-      clicks: 0
+      textareacontent: "",
+      caracteres: 0
     };
-
-    this.incrementa = this.incrementa.bind(this)
+    this.contador = this.contador.bind(this)
   }
+
   render() {
     return (
-      <div>
-        <span className="value">{this.state.clicks}</span>
-        <button id="inc" onClick={this.incrementa}>Incrementa</button>
+      <div className="container">
+        <textarea rows="3" value={this.state.textareacontent} onKeyUp={this.contador} onChange={this.contador}></textarea>
+        <div className="counter">{this.state.caracteres}</div>
       </div>
     );
   }
-
     
-  incrementa() {
-    let valor=Number(this.state.clicks);
-    valor++;
+  contador(event) {
+    let valor=this.state.textareacontent.length;
     this.setState({
-      clicks: valor
+      caracteres: valor,
+      textareacontent:event.target.value
     });
   }
 }
