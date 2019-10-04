@@ -1,13 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+import App from './App';
+import Setup from './Setup';
 
-const people = ['Rowe', 'Prevost', 'Gare'];
+it('renders without crashing', () => {
+  shallow(<App />);
+});
 
-const peopleLis = people.map(person => <li>{person}</li>);
-  
-<ul>{peopleLis}</ul>
-  
-  
-  
-  // ReactDOM.render goes here:
-  
+it('renders the textarea', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.find('textarea').length).toBe(1);
+});
+
+it('renders the counter', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.find('.counter').length).toBe(1);
+  expect(wrapper.find('.counter').text()).toBe("0");
+});
+
+it('updates the counter', () => {
+  const wrapper = shallow(<App />);
+  wrapper.find('textarea').simulate('change', { target: { value: 'Hola Mundo' } });
+  expect(wrapper.find('.counter').text()).toBe("0");
+});

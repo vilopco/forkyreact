@@ -15,12 +15,12 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <textarea rows="3" value={this.state.textareacontent} onChange={this.contador}></textarea>
+        <textarea rows="3" value={this.state.textareacontent} onKeyUp={this.contador} onChange={this.contador}></textarea>
         <div className="counter">{this.state.caracteres}</div>
       </div>
     );
   }
-    
+  
   contador(event) {
     let valor=this.state.textareacontent.length;
     this.setState({
