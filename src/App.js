@@ -6,26 +6,28 @@ class App extends Component {
   constructor() {
     super(); 
     this.state = {
-      textareacontent: "",
-      caracteres: 0
+      inputcontent: "",
+      repeater: ""
     };
-    this.contador=this.contador.bind(this)
+    this.repetidor=this.repetidor.bind(this)
   }
 
   render() {
     return (
-      <div className="container">
-        <textarea rows="3" value={this.state.textareacontent} onChange={this.contador}></textarea>
-        <div className="counter">{this.state.caracteres}</div>
+      <div>
+        <h1>Un repetidor</h1>
+        <input type="text" value={this.state.inputcontent} onChange={this.repetidor} placeholder="Empieza a escribir algo" />
+        <p className="repeater">{this.state.repeater}</p>
       </div>
     );
   }
+
   
-  contador(event) {
-    let valor=event.target.value.length;
+  
+  repetidor(event) {
     this.setState({
-      caracteres: valor,
-      textareacontent:event.target.value
+      repeater: event.target.value,
+      inputcontent: event.target.value
     });
   }
 }
