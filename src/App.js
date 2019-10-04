@@ -16,8 +16,8 @@ class App extends Component {
     return (
       <div>
         <h1>Un repetidor</h1>
-        <input type="text" value={this.state.inputcontent} onChange={this.repetidor} placeholder="Empieza a escribir algo" />
-        <p className="repeater">{this.state.repeater}</p>
+        <input type="text" value={this.state.text} onChange={this.repetidor} placeholder="Empieza a escribir algo" />
+        <p className="repeater">{this.state.text}</p>
       </div>
     );
   }
@@ -26,8 +26,7 @@ class App extends Component {
   
   repetidor(event) {
     this.setState({
-      repeater: event.target.value,
-      inputcontent: event.target.value
+      text: event.target.value
     });
   }
 }
