@@ -1,33 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import Welcome from './Welcome';
 
 class App extends Component {
   constructor() {
-    super(); 
+    super();
+
     this.state = {
-      inputcontent: "",
-      repeater: ""
-    };
-    this.repetidor=this.repetidor.bind(this)
+      names: ["Juan", "Pedro", "Germán"]
+    }
   }
 
   render() {
     return (
       <div>
-        <h1>Un repetidor</h1>
-        <input type="text" value={this.state.text} onChange={this.repetidor} placeholder="Empieza a escribir algo" />
-        <p className="repeater">{this.state.text}</p>
+        {this.state.names.map((name) =>
+          <Welcome name={name} key={name} />
+        )}
       </div>
     );
-  }
-
-  
-  
-  repetidor(event) {
-    this.setState({
-      text: event.target.value
-    });
   }
 }
 
